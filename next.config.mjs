@@ -1,4 +1,10 @@
+// next.config.mjs
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
+const nextConfig = {
+    experimental: {
+      appDir: true,
+    },
+  };
+  
 export default nextConfig;
+  
