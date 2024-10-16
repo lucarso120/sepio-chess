@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../firebaseConfig';
+import styles from './MatchHistory.module.css'; // Import CSS module
 
 export default function MatchHistory() {
   const [games, setGames] = useState([]);
@@ -26,16 +27,16 @@ export default function MatchHistory() {
   }, []);
 
   return (
-    <div>
-      <h2>Match History</h2>
-      <ul>
+    <div className={styles.container}>
+      <h2 className={styles.header}>Match History</h2>
+      <ul className={styles.list}>
         {games.map((game) => {
           const datetime = game.datetime
             ? game.datetime.toDate().toLocaleString()
             : '';
 
           return (
-            <li key={game.id}>
+            <li key={game.id} className={styles.listItem}>
               {datetime}: {game.winnerUsername} won against{' '}
               {game.winnerUsername === game.player1Username
                 ? game.player2Username

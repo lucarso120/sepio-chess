@@ -12,6 +12,7 @@ import {
   serverTimestamp,
   onSnapshot,
 } from 'firebase/firestore';
+import styles from './AddGame.module.css'; // Import CSS module
 
 export default function AddGame() {
   const [players, setPlayers] = useState([]);
@@ -106,12 +107,12 @@ export default function AddGame() {
   };
 
   return (
-    <div>
-      <h2>Add Game</h2>
-      <div>
+    <div className={styles.container}>
+      <h2 className={styles.header}>Add Game</h2>
+      <div className={styles.formGroup}>
         <label>
           Player 1:
-          <select value={player1Username} onChange={(e) => setPlayer1Username(e.target.value)}>
+          <select value={player1Username} onChange={(e) => setPlayer1Username(e.target.value)} className={styles.select}>
             <option value="">Select Player 1</option>
             {players.map((player) => (
               <option key={player.username} value={player.username}>
@@ -121,10 +122,10 @@ export default function AddGame() {
           </select>
         </label>
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label>
           Player 2:
-          <select value={player2Username} onChange={(e) => setPlayer2Username(e.target.value)}>
+          <select value={player2Username} onChange={(e) => setPlayer2Username(e.target.value)} className={styles.select}>
             <option value="">Select Player 2</option>
             {players.map((player) => (
               <option key={player.username} value={player.username}>
@@ -134,10 +135,10 @@ export default function AddGame() {
           </select>
         </label>
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label>
           Winner:
-          <select value={winnerUsername} onChange={(e) => setWinnerUsername(e.target.value)}>
+          <select value={winnerUsername} onChange={(e) => setWinnerUsername(e.target.value)} className={styles.select}>
             <option value="">Select Winner</option>
             {[player1Username, player2Username].map(
               (username) =>
@@ -150,7 +151,7 @@ export default function AddGame() {
           </select>
         </label>
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label>
           {player1Username || 'Player 1'}'s Piece Color:
           <select
@@ -161,6 +162,7 @@ export default function AddGame() {
                 player1: e.target.value,
               }))
             }
+            className={styles.select}
           >
             <option value="">Select Color</option>
             <option value="White">White</option>
@@ -168,7 +170,7 @@ export default function AddGame() {
           </select>
         </label>
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label>
           {player2Username || 'Player 2'}'s Piece Color:
           <select
@@ -179,6 +181,7 @@ export default function AddGame() {
                 player2: e.target.value,
               }))
             }
+            className={styles.select}
           >
             <option value="">Select Color</option>
             <option value="White">White</option>
@@ -186,7 +189,7 @@ export default function AddGame() {
           </select>
         </label>
       </div>
-      <button onClick={handleAddGame}>Add Game</button>
+      <button onClick={handleAddGame} className={styles.button}>Add Game</button>
     </div>
   );
 }

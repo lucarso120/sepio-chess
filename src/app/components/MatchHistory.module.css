@@ -1,0 +1,28 @@
+.container {
+    background-color: #f0f0f0; /* Light background for contrast */
+    color: #333; /* Dark text for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 400px; /* Limit height */
+    overflow-y: auto; /* Make scrollable */
+  }
+  
+  .header {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .listItem {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .listItem:last-child {
+    border-bottom: none;
+  }
