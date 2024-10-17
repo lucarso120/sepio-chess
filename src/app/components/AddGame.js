@@ -153,7 +153,7 @@ export default function AddGame() {
       </div>
       <div className={styles.formGroup}>
         <label>
-          {player1Username || 'Player 1'}'s Piece Color:
+          {player1Username || 'Player 1'}&#39;s Piece Color:
           <select
             value={pieceColors.player1}
             onChange={(e) =>
@@ -172,7 +172,7 @@ export default function AddGame() {
       </div>
       <div className={styles.formGroup}>
         <label>
-          {player2Username || 'Player 2'}'s Piece Color:
+          {player2Username || 'Player 2'}&#39;s Piece Color:
           <select
             value={pieceColors.player2}
             onChange={(e) =>
