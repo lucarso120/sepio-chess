@@ -54,8 +54,9 @@ export default function AddPlayer() {
         placeholder="Player Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        style={{ color: 'black' }} // Set text color to black
       />
-      <button onClick={handleAddPlayer}>Add Player</button>
+      <button onClick={handleAddPlayer} style={{ color: 'black' }}>Add Player</button> // Set button text color to black
     </div>
   );
 }
