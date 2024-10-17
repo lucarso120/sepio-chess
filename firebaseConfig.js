@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore';
 
 // Firebase configuration using environment variables
 const firebaseConfig = {
-    apiKey: "AIzaSyDFyaM3LsoqGdpsWpnBDD18uJP-9-sAhSk",
-    authDomain: "sepiochess.firebaseapp.com",
-    projectId: "sepiochess",
-    storageBucket: "sepiochess.appspot.com",
-    messagingSenderId: "770521277432",
-    appId: "1:770521277432:web:59d46ae6d7dbc992b26c0d",
-    measurementId: "G-2DLTHXV9PN"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
