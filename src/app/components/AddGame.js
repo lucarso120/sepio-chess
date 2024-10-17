@@ -1,4 +1,3 @@
-// app/components/AddGame.js
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -12,7 +11,7 @@ import {
   serverTimestamp,
   onSnapshot,
 } from 'firebase/firestore';
-import styles from './AddGame.module.css'; // Import CSS module
+import styles from './AddGame.module.css'; 
 
 export default function AddGame() {
   const [players, setPlayers] = useState([]);
@@ -61,7 +60,6 @@ export default function AddGame() {
     }
 
     try {
-      // Fetch player data
       const player1Doc = await getDoc(doc(db, 'players', player1Username));
       const player2Doc = await getDoc(doc(db, 'players', player2Username));
 
@@ -73,20 +71,16 @@ export default function AddGame() {
       const player1Data = player1Doc.data();
       const player2Data = player2Doc.data();
 
-      // Determine winner and loser
       const winnerData = winnerUsername === player1Username ? player1Data : player2Data;
       const loserData = winnerUsername === player1Username ? player2Data : player1Data;
 
-      // Calculate new Elo ratings
       const { winnerNewElo, loserNewElo } = calculateElo(winnerData.elo, loserData.elo);
 
-      // Update Elo ratings in Firestore
       await updateDoc(doc(db, 'players', winnerUsername), { elo: winnerNewElo });
       const loserUsername =
         winnerUsername === player1Username ? player2Username : player1Username;
       await updateDoc(doc(db, 'players', loserUsername), { elo: loserNewElo });
 
-      // Add game to 'games' collection
       await addDoc(collection(db, 'games'), {
         player1Username,
         player2Username,
@@ -96,7 +90,6 @@ export default function AddGame() {
       });
 
       alert('Game logged successfully!');
-      // Reset form
       setPlayer1Username('');
       setPlayer2Username('');
       setWinnerUsername('');

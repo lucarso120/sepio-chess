@@ -1,16 +1,14 @@
-// app/components/MatchHistory.js
 'use client';
 
 import { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../firebaseConfig';
-import styles from './MatchHistory.module.css'; // Import CSS module
+import styles from './MatchHistory.module.css'; 
 
 export default function MatchHistory() {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    // Fetch games
     const gamesRef = collection(db, 'games');
     const q = query(gamesRef, orderBy('datetime', 'desc'));
     const unsubscribeGames = onSnapshot(q, (snapshot) => {

@@ -1,4 +1,3 @@
-// app/page.js
 'use client';
 
 import { useState } from 'react';
@@ -15,7 +14,6 @@ export default function HomePage() {
   };
 
   const handleOverlayClick = (e) => {
-    // Close the modal when the overlay is clicked
     if (e.target === e.currentTarget) {
       closeModal();
     }

@@ -1,4 +1,3 @@
-// app/components/AddPlayer.js
 'use client';
 
 import { useState } from 'react';
@@ -15,7 +14,6 @@ export default function AddPlayer() {
         return;
       }
 
-      // Validate username
       const usernameRegex = /^[a-zA-Z0-9._-]+$/;
       if (!usernameRegex.test(username)) {
         alert(
@@ -24,7 +22,6 @@ export default function AddPlayer() {
         return;
       }
 
-      // Check if username already exists
       const userDocRef = doc(db, 'players', username);
       const userDocSnap = await getDoc(userDocRef);
       if (userDocSnap.exists()) {
@@ -32,14 +29,13 @@ export default function AddPlayer() {
         return;
       }
 
-      // Add player to Firestore with initial elo
       await setDoc(userDocRef, {
         username,
         elo: 900,
       });
 
       alert('Player added successfully!');
-      setUsername(''); // Reset the input field
+      setUsername(''); 
     } catch (error) {
       console.error('Error adding player:', error);
       alert(`Failed to add player: ${error.message}`);
@@ -54,9 +50,9 @@ export default function AddPlayer() {
         placeholder="Player Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        style={{ color: 'black' }} // Set text color to black
+        style={{ color: 'black' }} 
       />
-      <button onClick={handleAddPlayer} style={{ color: 'black' }}>Add Player</button> // Set button text color to black
+      <button onClick={handleAddPlayer} style={{ color: 'black' }}>Add Player</button> 
     </div>
   );
 }

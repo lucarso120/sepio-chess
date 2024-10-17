@@ -1,10 +1,9 @@
-// app/components/Leaderboard.js
 'use client';
 
 import { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../firebaseConfig';
-import styles from './Leaderboard.module.css'; // Import CSS module
+import styles from './Leaderboard.module.css'; 
 
 export default function Leaderboard() {
   const [players, setPlayers] = useState([]);
